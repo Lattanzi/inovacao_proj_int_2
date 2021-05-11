@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+
+
+
+{% block content %}
+<div class="jumbotron">
+  <h1>COMIND</h1>
+  <p class="lead">Protótipo do sistema web</p>
+  {% if current_user.is_authenticated %}
+  <p><a class="btn btn-lg btn-success" href="{{ url_for('tables') }}" role="button">Listar clientes</a></p>
+  {% else %}
+  <p><a class="btn btn-lg btn-success" href="{{ url_for('login') }}" role="button">Acessar Sistema</a></p>
+  {% endif %}
+</div>
+
+<div class="row marketing">
+  {% if current_user.is_authenticated %}
+  {% else %}
+  <div class="col-lg-6">
+    <h4>Desenvolvedor 1</h4>
+    <p>Fernando Albuquerque</p>
+
+    <h4>Desenvolvedor 2</h4>
+    <p>Lucas Lattanzi</p>
+
+    <h4>Desenvolvedor 3</h4>
+    <p>Vitor Luiz</p>
+  </div>
+
+  <div class="col-lg-6">
+    <h4>Desidner 1</h4>
+    <p>Mariana Oliveira</p>
+
+    <h4>Desidner 2</h4>
+    <p>Louise Laclau</p>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
